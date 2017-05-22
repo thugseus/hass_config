@@ -1,0 +1,20 @@
+### Turn on light when i'm coming home between 16:00 and 23:00 and if 30 mins before sunset and i'm at home
+- alias: 'Rule 1 Light on in the evening'
+  trigger:
+    - platform: state    
+      entity_id: device_tracker.phone_phone
+      from: 'not_home'
+      to: 'home'
+    - platform: sun
+      event: sunset
+      offset: '-00:30:00'
+  condition:
+    - condition: state
+      entity_id: device_tracker.phone_phone
+      state: 'home'
+    - condition: time
+      after: '16:00:00'
+      before: '23:00:00'
+  action:
+    service: script.led_light_on
+    #entity_id: group.living_room

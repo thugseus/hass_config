@@ -1,0 +1,147 @@
+#http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
+
+#     ___    _              ____                __   _   __        
+#    / _ |  (_)  ____      / __ \ __ __ ___ _  / /  (_) / /_  __ __
+#   / __ | / /  / __/     / /_/ // // // _ `/ / /  / / / __/ / // /
+#  /_/ |_|/_/  /_/        \___\_\\_,_/ \_,_/ /_/  /_/  \__/  \_, / 
+#                                                           /___/  
+
+## Send Notificatin when air quality is bad
+- alias: 'Air quality'
+  trigger:
+    - plateforme: state
+      entity_id: binary_sensor.air_quality
+      above: '30'
+      for:
+        minutes: 1
+  action:
+    - service: shell_command.h_police_lights_single
+    - service: notify.firetv
+      data_template:
+        title: "Bad air"
+        message: "Open the window"
+        data:{
+          "position":"center",
+          "duration":2,
+          "transparency":"0%",
+          "color": "red",
+          "interrupt": 1
+          }
+    - service: notify.html5
+      data_template:
+        title: "Bad air"
+        message: "Open the window"
+        data:{
+          actions: [
+              {
+                "action": "stop_police_lights",
+                "title": "Stop police light"
+              }
+            ]
+          }
+    - service: persistent_notification.create
+      data:
+        title: "Bad air"
+        message: "Open the window"
+        
+## Stop police lights when air turns better
+- alias: 'Air quality'
+  trigger:
+    - plateforme: state
+      entity_id: binary_sensor.air_quality
+      from: '30'
+      to: '29'
+      for:
+        minutes: 1
+  action:
+    - service: shell_command.h_hyperion_off
+    
+## Stop police lights when user clicks button
+- alias: 'Bad air quality button clicked'
+  trigger:
+    platform: event
+    event_type: html5_notification.clicked
+    event_data:
+     action: stop_police_lights
+  action:
+    - service: shell_command.h_hyperion_off
+
+#     ___                            _              
+#    / _ | ___ _ __ __ ___ _  ____  (_) __ __  __ _ 
+#   / __ |/ _ `// // // _ `/ / __/ / / / // / /  ' \
+#  /_/ |_|\_, / \_,_/ \_,_/ /_/   /_/  \_,_/ /_/_/_/
+#          /_/                                      
+
+## Send Notificatin when water temperature high
+- alias: 'Aquarium temperature'
+  trigger:
+    - plateforme: state
+      entity_id: binary_sensor.aquarium_temperature
+      above: '22'
+  action:
+    - service: persistent_notification.create
+      data:
+        title: "Aquarium too hot"
+        message: "Cool down the aquarium water"
+    - service: notify.html5
+      data_template:
+        title: "Aquarium too hot"
+        message: "Cool down the aquarium water"
+        
+## Send Notificatin when water quality is bad
+- alias: 'Aquarium water quality'
+  trigger:
+    - plateforme: state
+      entity_id: binary_sensor.aquarium_water_quality
+      below: '80'
+      for:
+        hours: 1
+  action:
+    - service: persistent_notification.create
+      data:
+        title: "Aquarium is dirty"
+        message: "Clean the aquarium"
+    - service: notify.html5
+      data_template:
+        title: "Aquarium is dirty"
+        message: "Clean the aquarium"
+
+## Send Notificatin when water level is low
+- alias: 'Aquarium water level'
+  trigger:
+    - plateforme: state
+      entity_id: binary_sensor.aquarium_water_level
+      below: '20'
+      for:
+        minutes: 10
+  action:
+    - service: persistent_notification.create
+      data:
+        title: "Aquarium water is low"
+        message: "Fill up aquarium"
+    - service: notify.html5
+      data_template:
+        title: "Aquarium water is low"
+        message: "Fill up aquarium"
+#     ___    __              __      
+#    / _ \  / / ___ _  ___  / /_  ___
+#   / ___/ / / / _ `/ / _ \/ __/ (_-<
+#  /_/    /_/  \_,_/ /_//_/\__/ /___/
+#                 
+## Send Notificatin when soil moisture is low                   
+- alias: 'Plant soil moisture'
+  trigger:
+    - plateforme: state
+      entity_id: binary_sensor.plant_moisture_1
+      below: '60'
+      for:
+        hours: 1
+  action:
+    - service: persistent_notification.create
+      data:
+        title: "Plant 1 too dry"
+        message: "Water plant 1"
+    - service: notify.html5
+      data_template:
+        title: "Plant 1 too dry"
+        message: "Water plant 1"

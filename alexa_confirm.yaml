@@ -1,0 +1,12 @@
+>
+          {{ [
+          "ok",
+          "erledigt",
+          "ay ay",
+          "in ordnung",
+          "mach ich",
+          "überlass das mir",
+          "wenn es sein muss",
+          "na gut",
+          "sofort"
+          ] | random }} 
