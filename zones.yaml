@@ -1,0 +1,5 @@
+ - name: Arbeit
+   latitude: 49.5798
+   longitude: 10.9622
+   radius: 300
+   icon: mdi:worker

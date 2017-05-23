@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#ssh pi@192.168.178.59
+ssh pi@192.168.178.59 <<'ENDSSH'
+sudo mkdir TEST_FOLDER
+ENDSSH
+sudo mkdir ABC
+
+#mkdir TEST_FOLDER
+
+#sudo shutdown -h now

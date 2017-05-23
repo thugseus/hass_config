@@ -1,0 +1,20 @@
+test:
+  sequence:
+    - service: shell_command.test
+firetv_server_start:
+  sequence:
+    - service: shell_command.firetv_server_start
+### LED LAMPE
+led_light_brightness_max:
+  sequence:
+    - service: shell_command.led_light_brightness_max
+led_light_brightness_min:
+  sequence:
+    - service: shell_command.led_light_brightness_min
+### LED LEISTE WOHNZIMMER
+led_panel_livingroom_brightness_up:
+  sequence:
+    - service: shell_command.led_panel_livingroom_brightness_up
+led_panel_livingroom_brightness_down:
+  sequence:
+    - service: shell_command.led_panel_livingroom_brightness_down

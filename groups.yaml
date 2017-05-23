@@ -1,0 +1,121 @@
+### Views
+default_view:
+  view: yes
+  entities:
+    - group.development
+    - group.home
+    - group.tracker
+    - group.sensors
+    - group.led_light
+    - group.led_panel_livingroom
+
+rpDataView:
+  view: yes
+  name: 'Raspberry Data'
+  entities:
+    - group.rpData
+    - group.servers
+
+media:
+  name: 'Media'
+  view: yes
+  entities:
+    - switch.relay_1_1
+    - media_player.amazon_fire_tv
+    - media_player.receiver
+    - group.hyperion
+
+### Cards
+development:
+  name: 'Development'
+  entities:
+    #- switch.firetv_server
+    #- script.firetv_server_start
+    #- script.test
+    - climate.aquariumcontroll_2_0
+    - sensor.aquariumcontroll_2_1
+    - sensor.aquariumcontroll_2_2
+    - sensor.aquariumcontroll_2_3
+    - switch.tft_switch_5_0
+    - switch.tft_switch_5_1
+    - switch.tft_switch_5_2
+    - switch.tft_switch_5_3
+    - camera.typhoon_cam
+    #- hello_state.hello_state
+    - light.buro
+    - light.wohnzimmer
+    - automation.rule_1_light_on_in_the_evening
+    - updater.updater
+    - switch.relay_1_2
+    #- script.h_knight_rider
+    #- switch.relay_1_1
+    #- switch.relaybutton_1_3
+    #- switch.relaybutton_1_4
+
+sensors:
+  name: 'Sensors'
+  entities:
+    - sensor.dht_sensor_temperature
+    - sensor.dht_sensor_humidity
+    #- switch.home_assistant_system_shutdown
+    - sensor.owm_temperature
+    - sensor.owm_humidity
+    - sensor.owm_condition
+    - sensor.owm_rain
+    - sensor.owm_cloud_coverage
+    - sensor.owm_pressure
+    - sensor.owm_snow
+    - sensor.owm_wind_speed
+    - sensor.heiwasserzahler
+    - sensor.Kaltwasserzahler
+
+tracker:
+  name: 'Tracker'
+  entities:
+    - device_tracker.android2e7650c3b449d07afritzbox
+    - device_tracker.phone_phone
+    - group.all_devices
+
+rpData:
+  name: 'Raspberry Data'
+  entities:
+    - sensor.cpu_use
+    - sensor.disk_use_home
+    - sensor.ram_free
+    - sensor.speedtest_ping
+    - sensor.speedtest_upload
+    - sensor.speedtest_download
+    
+servers:
+  name: 'Server Data'
+  entities:
+    - sensor.ssl_certificate_expiry
+    - sensor.ssl_certificate_expiry_2
+
+home:
+  name: 'Home Zone'
+  entities:
+    - light.yeelight_one
+    - switch.socket_2
+
+led_light:
+  name: 'LED Lampe'
+  entities:
+    - switch.led_light_on
+    - input_select.led_light
+    - script.led_light_brightness_max
+    - script.led_light_brightness_min
+
+led_panel_livingroom:
+  name: 'LED Leiste Wohnzimmer'
+  entities:
+    - switch.led_panel_livingroom_on
+    - input_select.led_panel_livingroom
+    - script.led_panel_livingroom_brightness_up
+    - script.led_panel_livingroom_brightness_down
+
+hyperion:
+  name: 'Ambilight'
+  entities:
+    - light.hyperion
+    - input_select.hyperion_effect

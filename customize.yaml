@@ -1,0 +1,125 @@
+###Sensors
+sensor.dht_sensor_humidity:
+  friendly_name: Wohnzimmer Luftfeuchtigkeit
+  icon: mdi:water-percent
+sensor.dht_sensor_temperature:
+  friendly_name: Wohnzimmer Temperatur
+  icon: mdi:temperature-celsius
+sensor.owm_cloud_coverage:
+  friendly_name: Bewölkt
+  icon: mdi:cloud
+sensor.owm_condition:
+  friendly_name: Verhältnisse
+sensor.owm_humidity:
+  friendly_name: Außen Luftfeuchtigkeit
+  icon: mdi:water-percent
+sensor.owm_pressure:
+  friendly_name: Luftdruck
+  icon: mdi:arrow-compress-all
+sensor.owm_rain:
+  friendly_name: Regen
+  icon: mdi:weather-rainy
+sensor.owm_snow:
+  friendly_name: Schnee
+  icon: mdi:weather-snowy
+sensor.owm_temperature:
+  friendly_name: Außen Temperatur
+  icon: mdi:temperature-celsius
+sensor.owm_wind_speed:
+  friendly_name: Windgeschwindigkeit
+  icon: mdi:weather-windy
+sensor.ssl_certificate_expiry:
+  friendly_name: Homeassistant Cert
+sensor.ssl_certificate_expiry_2:
+  friendly_name: MyApp Cert
+
+###AQUARIUM
+climate.aquariumcontroll_2_0:
+  friendly_name: Aquarium Climate
+sensor.aquariumcontroll_2_1:
+  friendly_name: Aquarium Wasserstand
+sensor.aquariumcontroll_2_2:
+  friendly_name: Aquarium Temperatur
+sensor.aquariumcontroll_2_3:
+  friendly_name: Wasserkühlung Geschwindigkeit
+sensor.aquariumcontroll_2_4:
+  friendly_name: Wasserkühlung Temperatur
+  
+###Switches
+switch.socket_2:
+  friendly_name: Steckdose 2
+switch.relay_1_1:
+  friendly_name: Bodyshaker
+  icon: mdi:watch-vibrate
+
+  ### LED LAMPE
+switch.led_light_on:
+  friendly_name: Power
+script.led_light_green:
+  friendly_name: Grün
+  icon: mdi:format-color-fill
+script.led_light_red:
+  friendly_name: Rot
+  icon: mdi:format-color-fill
+script.led_light_blue:
+  friendly_name: Blau
+  icon: mdi:format-color-fill
+script.led_light_yellow:
+  friendly_name: Gelb
+  icon: mdi:format-color-fill
+script.led_light_auto:
+  friendly_name: Auto
+  icon: mdi:autorenew
+script.led_light_brightness_max:
+  friendly_name: Helligkeit max
+  icon: mdi:weather-sunset-up
+script.led_light_brightness_min:
+  friendly_name: Helligkeit min
+  icon: mdi:weather-sunset-down
+  
+  ### LED LEISTE WOHNZIMMER
+switch.led_panel_livingroom_on:
+  friendly_name: Power
+script.led_panel_livingroom_green:
+  friendly_name: Grün
+  icon: mdi:format-color-fill
+script.led_panel_livingroom_red:
+  friendly_name: Rot
+  icon: mdi:format-color-fill
+script.led_panel_livingroom_blue:
+  friendly_name: Blau
+  icon: mdi:format-color-fill
+script.led_panel_livingroom_yellow:
+  friendly_name: Gelb
+  icon: mdi:format-color-fill
+script.led_panel_livingroom_auto:
+  friendly_name: Auto
+  icon: mdi:autorenew
+script.led_panel_livingroom_brightness_up:
+  friendly_name: Heller
+  icon: mdi:weather-sunset-up
+script.led_panel_livingroom_brightness_down:
+  friendly_name:  Dunkler
+  icon: mdi:weather-sunset-down
+script.led_panel_livingroom_white:
+  friendly_name:  Weiß
+  icon: mdi:format-color-fill
+script.led_panel_livingroom_smooth:
+  friendly_name:  Smooth
+  icon: mdi:all-inclusive
+script.led_panel_livingroom_fade:
+  friendly_name:  Fade
+  icon: mdi:arrange-send-to-back
+script.led_panel_livingroom_strobe:
+  friendly_name:  Strobe
+  icon: mdi:spotlight
+script.led_panel_livingroom_orange:
+  friendly_name:  Orange
+  icon: mdi:format-color-fill
+  
+ ### LIGHT
+light.yeelight_one:
+  friendly_name:  Stehlampe
+  haaska_name: Stehlampe
+  emulated_hue: true
+  emulated_hue_name: "Stehlampe"

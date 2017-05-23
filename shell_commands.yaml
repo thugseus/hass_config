@@ -1,0 +1,54 @@
+firetv_server_start: 'sudo /etc/init.d/firetvServer start'
+test: ssh pi@192.168.178.59 <<'ENDSSH' sudo mkdir /home/pi/ABCDEFG/ ENDSSH
+### LED LAMPE
+led_light_brightness_max: irsend SEND_ONCE IAN_78447 KEY_1
+led_light_brightness_min: irsend SEND_ONCE IAN_78447 KEY_2
+led_light: >
+                irsend SEND_ONCE IAN_78447 {% if is_state("input_select.led_light", "Gruen") %}KEY_GREEN
+                                                {% elif is_state("input_select.led_light", "Gelb") %}KEY_YELLOW
+                                                {% elif is_state("input_select.led_light", "Blau") %}KEY_Blue
+                                                {% elif is_state("input_select.led_light", "Rot") %}KEY_RED
+                                                {% elif is_state("input_select.led_light", "Weiss") %}KEY_3                                      
+                                                {% elif is_state("input_select.led_light", "Auto") %}KEY_0
+                                                {% endif %}
+### LED LEISTE WOHNZIMMER
+led_panel_livingroom_brightness_up: irsend SEND_ONCE LED_LIVINGROOM KEY_BRIGHTNESSUP
+led_panel_livingroom_brightness_down: irsend SEND_ONCE LED_LIVINGROOM KEY_BRIGHTNESSDOWN
+led_panel_livingroom: >
+                irsend SEND_ONCE LED_LIVINGROOM {% if is_state("input_select.led_panel_livingroom", "Gruen") %}KEY_GREEN
+                                                {% elif is_state("input_select.led_panel_livingroom", "Gelb") %}KEY_YELLOW
+                                                {% elif is_state("input_select.led_panel_livingroom", "Blau") %}KEY_Blue
+                                                {% elif is_state("input_select.led_panel_livingroom", "Rot") %}KEY_RED
+                                                {% elif is_state("input_select.led_panel_livingroom", "Orange") %}KEY_4                                                
+                                                {% elif is_state("input_select.led_panel_livingroom", "Smooth") %}KEY_0
+                                                {% elif is_state("input_select.led_panel_livingroom", "Fade") %}KEY_1
+                                                {% elif is_state("input_select.led_panel_livingroom", "Strobe") %}KEY_2
+                                                {% elif is_state("input_select.led_panel_livingroom", "Weiss") %}KEY_3
+                                                {% endif %}
+  
+### Hyperion
+h_shutdown: '/home/hass/.homeassistant/hyperion/shutdown.sh'
+h_mood_blobs_blue: '/home/hass/.homeassistant/hyperion/effects.sh "Blue mood blobs"'
+h_knight_rider: '/home/hass/.homeassistant/hyperion/effects.sh "Knight rider"'
+h_mood_blobs_cold: '/home/hass/.homeassistant/hyperion/effects.sh "Cold mood blobs"'
+h_mood_blobs_full_color: '/home/hass/.homeassistant/hyperion/effects.sh "Full color mood blobs"'
+h_mood_blobs_green: '/home/hass/.homeassistant/hyperion/effects.sh "Green mood blobs"'
+h_mood_blobs_red: '/home/hass/.homeassistant/hyperion/effects.sh "Red mood blobs"'
+h_mood_blobs_warm: '/home/hass/.homeassistant/hyperion/effects.sh "Warm mood blobs"'
+h_rainbow_mood: '/home/hass/.homeassistant/hyperion/effects.sh "Rainbow mood"'
+h_rainbow_swirl: '/home/hass/.homeassistant/hyperion/effects.sh "Rainbow swirl fast"'
+h_snake: '/home/hass/.homeassistant/hyperion/effects.sh "Snake"'
+h_strobe_blue: '/home/hass/.homeassistant/hyperion/effects.sh "Strobe blue"'
+h_hyperion_off: '/home/hass/.homeassistant/hyperion/hyperionon.sh'
+h_strobe_raspberry: '/home/hass/.homeassistant/hyperion/effects.sh "Strobe Raspbmc"'
+h_strobe_white: '/home/hass/.homeassistant/hyperion/effects.sh "Strobe white"'
+h_cinema_dim_lights: '/home/hass/.homeassistant/hyperion/effects.sh "Cinema dim lights"'
+h_cinema_brighten_lights: '/home/hass/.homeassistant/hyperion/effects.sh "Cinema brighten lights"'
+h_police_lights_single: '/home/hass/.homeassistant/hyperion/effects.sh "Police Lights Single"'
+h_police_lights_solid: '/home/hass/.homeassistant/hyperion/effects.sh "Police Lights Solid"'
+h_random: '/home/hass/.homeassistant/hyperion/effects.sh "Random"'
+h_running_dots: '/home/hass/.homeassistant/hyperion/effects.sh "Running dots"'
+h_system_shutdown: '/home/hass/.homeassistant/hyperion/effects.sh "System Shutdown"'
+h_sparks_color: '/home/hass/.homeassistant/hyperion/effects.sh "Sparks Color"'
+h_sparks: '/home/hass/.homeassistant/hyperion/effects.sh "Sparks"'
+h_color_traces: '/home/hass/.homeassistant/hyperion/effects.sh "Color traces"'

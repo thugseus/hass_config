@@ -1,0 +1,21 @@
+- platform: yeelight
+  devices:
+    192.168.178.56:
+      name: 'Yeelight One'
+#- platform: livolo
+#  devices:
+#    1:
+#      name: Wohnzimmer
+#    2:
+#      name: Büro
+- platform: hyperion
+  host: 192.168.178.59
+  
+- platform: mipow
+  devices:
+    1:
+      name: Wohnzimmer
+      mac: 85:F0:4B:0D:AC:E6
+    2:
+      name: Büro
+      mac: 6E:4E:4B:0F:AC:E6

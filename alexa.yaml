@@ -1,11 +1,10 @@
 # Example configuration.yaml entry
-alexa:
   intents:
     WhereAreWeIntent:
       speech:
         type: plaintext
         text: >
-          {%- if is_state('device_tracker.frafultrabook	', 'home') und
+          {%- if is_state('device_tracker.frafultrabook	', 'home') and
                  is_state('device_tracker.laurapc', 'home') -%}
             sind beide zuhause, du depp.
           {%- else -%}

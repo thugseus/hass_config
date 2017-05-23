@@ -1,39 +1,136 @@
-sensor:
-  - platform: example
-  - platform: random
-    name: Heißwasserzähler
-    minimum: 0
-  - platform: random
-    name: Kaltwasserzähler
-    minimum: 0
-    
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Zuhause
+  # Location required to calculate the time the sun rises and sets
+  latitude: 49.4777
+  longitude: 10.9590
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 321
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Berlin
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret http_password
+  ssl_certificate: /etc/letsencrypt/live/derflo.ddns.net/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/derflo.ddns.net/privkey.pem
+
+# Checks for available updates
 updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+#history:
+
+# View all events in a logbook
+#logbook:
+#logger:
+
+config:
+
+# Track the sun
+sun:
+
+# Weather Prediction
+sensor: !include sensors.yaml
+
+#mqtt:
+#  broker: 127.0.0.1
+#  port: 1883
+#  client_id: home-assistant-1
+#  username: pi
+#  password: raspberry
   
-light:
-  - platform: livolo
-    devices:
-      1:
-        name: Wohnzimmer
-      2:
-        name: Büro
-  - platform: hyperion
-	   
+mqtt:
+  broker: m13.cloudmqtt.com
+  port: 16416
+  client_id: home-assistant-1
+  keepalive: 60
+  username: homeassistant
+  password: '!23Flo$56'
+
+zone: !include zones.yaml
+
+media_player: !include mediaplayers.yaml
+  
+group: !include groups.yaml
+
+input_select:  !include input_select.yaml
+    
+device_tracker:
+#  - platform: nmap_tracker
+#    hosts: 192.168.178.1/24
+#  - platform: bluetooth_tracker
+  - platform: owntracks
+    waypoints: True
+  - platform: fritz
+    host: 192.168.178.1
+    consider_home: 20
+#  - platform: bluetooth_le_tracker
+notify:
+  - name: HTML5
+    platform: html5
+    gcm_api_key: !secret html5_api_key
+    gcm_sender_id: '1074269833799'
+  - platform: nfandroidtv
+    name: FireTV
+    host: 192.168.178.48
+
+light: !include lights.yaml
+
+shell_command: !include shell_commands.yaml
+
+switch: !include switches.yaml
+
+lirc:
+
 automation: !include automation.yaml
 
+script: !include scripts.yaml
+
+#alexa: !include alexa.yaml
+
+emulated_hue:
+  type: alexa
+  listen_port: 80
+  
 mysensors:
   gateways:
     - device: '/dev/ttyUSB0'
-      persistence_file: 'path/mysensors.json'
-      baud_rate: 38400
-    - device: '/dev/ttyACM0'
-      persistence_file: 'path/mysensors2.json'
+      persistence_file: /home/hass/.homeassistant/arduino/mysensors.json
       baud_rate: 115200
-    - device: mqtt
-      persistence_file: 'path/mysensors3.json'
-      topic_in_prefix: 'mygateway1-out'
-      topic_out_prefix: 'mygateway1-in'
-  debug: true
-  optimistic: false
+#38400
+#    - device: '/dev/ttyACM0'
+#      persistence_file: 'path/mysensors2.json'
+#      baud_rate: 115200
+#    - device: mqtt
+#      persistence_file: 'path/mysensors3.json'
+#      topic_in_prefix: 'mygateway1-out'
+#      topic_out_prefix: 'mygateway1-in'
+  optimistic: true
   persistence: true
   retain: true
   version: 2.0
+
+hello_state:
+  text: 'Hello, World!'
+  
+camera:
+  - platform: local_file
+    name: Typhoon cam
+    file_path: /tmp/lastsnap.jpg
+

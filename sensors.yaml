@@ -1,0 +1,40 @@
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: memory_free
+    - type: processor_use
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+- platform: fritzbox_callmonitor
+- platform: dht
+  sensor: DHT22
+  pin: 23
+  monitored_conditions:
+    - temperature
+    - humidity
+- platform: openweathermap
+  api_key: 7d15da581ba80c3a759b77c557f03b1f
+  monitored_conditions:
+    - weather
+    - temperature
+    - wind_speed
+    - humidity
+    - pressure
+    - clouds
+    - rain
+    - snow
+#- platform: example
+- platform: cert_expiry
+  host: https://derflo.ddns.net
+  port: 8123
+- platform: cert_expiry
+  host: https://derflo.ddns.net
+  port: 4242
+- platform: cert_expiry
+  host: https://derflo.ddns.net
+  
+  

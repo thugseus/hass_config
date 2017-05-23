@@ -1,0 +1,10 @@
+- platform: firetv
+- platform: onkyo
+  host: 192.168.178.22
+  name: receiver
+  sources:
+    pc: 'HDD'
+    video1 : 'Fire TV'
+    video2 : 'SKY'
+    video3 : 'XBOX'
+    video4 : 'AUX'
