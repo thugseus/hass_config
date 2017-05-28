@@ -1,0 +1,123 @@
+### Turn on light when i'm coming home between 16:00 and 23:00 and if 30 mins before sunset and i'm at home
+- alias: 'Rule 1 Light on in the evening'
+  trigger:
+    - platform: state    
+      entity_id: device_tracker.phone_phone
+      from: 'not_home'
+      to: 'home'
+    - platform: sun
+      event: sunset
+      offset: '-00:30:00'
+  condition:
+    - condition: state
+      entity_id: device_tracker.phone_phone
+      state: 'home'
+    - condition: time
+      after: '16:00:00'
+      before: '23:00:00'
+  action:
+    service: script.led_light_on
+
+### Turn off Hyperion Raspberry when AV Receiver turns off
+- alias: 'Shut down Hyperion'
+  trigger:
+    - platform: state    
+      entity_id: device_tracker.txnr636
+      from: 'home'
+      to: 'not_home'
+  action:
+    service: script.h_shutdown
+
+### Turn on Bodyshaker when AV Receiver turns on
+- alias: 'Bodyshaker on when AV Receiver on'
+  trigger:
+    - platform: state    
+      entity_id: device_tracker.txnr636
+      from: 'not_home'
+      to: 'home'
+    - platform: state    
+      entity_id: media_player.receiver
+      from: 'off'
+      to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.relay_1_1
+
+### Turn off Bodyshaker when AV Receiver turns off
+- alias: 'Bodyshaker off when AV Receiver off'
+  trigger:
+    - platform: state    
+      entity_id: device_tracker.txnr636
+      from: 'home'
+      to: 'not_home'
+    - platform: state    
+      entity_id: media_player.receiver
+      from: 'on'
+      to: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.relay_1_1
+    
+### Input Select
+- alias: LED Panel 
+  trigger:
+    - platform: state
+      entity_id: input_select.led_panel_livingroom
+  action:
+    service: shell_command.led_panel_livingroom
+    #entity_id: led_panel_livingroom_green
+
+- alias: LED Light 
+  trigger:
+    - platform: state
+      entity_id: input_select.led_light
+  action:
+    service: shell_command.led_light
+    
+### Turn on light when i'm coming home between 16:00 and 23:00 and if 30 mins before sunset and i'm at home
+- alias: 'Rule 1 Light on in the evening'
+  trigger:
+    - platform: state    
+      entity_id: device_tracker.phone_phone
+      from: 'not_home'
+      to: 'home'
+    - platform: sun
+      event: sunset
+      offset: '-00:30:00'
+  condition:
+    - condition: state
+      entity_id: device_tracker.phone_phone
+      state: 'home'
+    - condition: time
+      after: '16:00:00'
+      before: '23:00:00'
+  action:
+    service: script.test
+    #entity_id: group.living_room
+
+####HYPERION AUTOMATIONS####
+- !include hyperion/hyperion_mood_blobs_blue.yaml
+- !include hyperion/hyperion_knight_rider.yaml
+- !include hyperion/hyperion_mood_blobs_cold.yaml
+- !include hyperion/hyperion_mood_blobs_full_color.yaml
+- !include hyperion/hyperion_mood_blobs_green.yaml
+- !include hyperion/hyperion_mood_blobs_red.yaml
+- !include hyperion/hyperion_mood_blobs_warm.yaml
+- !include hyperion/hyperion_rainbow_mood.yaml
+- !include hyperion/hyperion_rainbow_swirl.yaml
+- !include hyperion/hyperion_snake.yaml
+- !include hyperion/hyperion_strobe_blue.yaml
+- !include hyperion/hyperion_strobe_white.yaml
+- !include hyperion/hyperion_strobe_raspberry.yaml
+- !include hyperion/hyperion_off.yaml
+- !include hyperion/hyperion_color_traces.yaml
+- !include hyperion/hyperion_snake.yaml
+- !include hyperion/hyperion_cinema_dim_lights.yaml
+- !include hyperion/hyperion_cinema_brighten_lights.yaml
+- !include hyperion/hyperion_police_lights_single.yaml
+- !include hyperion/hyperion_random.yaml
+- !include hyperion/hyperion_police_lights_solid.yaml
+- !include hyperion/hyperion_running_dots.yaml
+- !include hyperion/hyperion_system_shutdown.yaml
+- !include hyperion/hyperion_sparks_color.yaml
+- !include hyperion/hyperion_sparks.yaml

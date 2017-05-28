@@ -1,54 +1,12 @@
 # Example configuration.yaml entry
-  intents:
-    WhereAreWeIntent:
-      speech:
-        type: plaintext
-        text: >
-          {%- if is_state('device_tracker.frafultrabook	', 'home') and
-                 is_state('device_tracker.laurapc', 'home') -%}
-            sind beide zuhause, du depp.
-          {%- else -%}
-            Laura ist in {{ states("device_tracker.laurapc") }}
-            und Flo ist in {{ states("device_tracker.frafultrabook") }}
-          {% endif %}
-
-    LocateIntent:
-      action:
-        service: notify.notify
-        data_template:
-          message: The location of {{ User }} has been queried via Alexa.
-      speech:
-        type: plaintext
-        text: >
-          {%- for state in states.device_tracker -%}
-            {%- if state.name.lower() == User.lower() -%}
-              {{ state.name }} ist in {{ state.state }}
-            {%- elif loop.last -%}
-              Entschuldigung, ich weiß nicht wo {{ User }} ist.
-            {%- endif -%}
-          {%- else -%}
-            Entschuldigung, ich habe keine tracker registriert.
-          {%- endfor -%}
-      card:
-        type: simple
-        title: Sample title
-        content: Some more content
-    RunScriptIntent:
-      action:
-        service: script.turn_on
-        data_template:
-          entity_id: script.{{ Script | replace(" ", "_") }}
-      speech:
-        type: plaintext
-        text: !include alexa_confirm.yaml
     flash_briefings:
         whoishome:
           - title: Who's at home?
             text: >
-              {%- if is_state('device_tracker.paulus', 'home') and
-                     is_state('device_tracker.anne_therese', 'home') -%}
+              {%- if is_state('device_tracker.phone_phone', 'home') and
+                     is_state('device_tracker.txnr636', 'home') -%}
                 You are both home, you silly
               {%- else -%}
-                Anne Therese is at {{ states("device_tracker.anne_therese") }}
-                and Paulus is at {{ states("device_tracker.paulus") }}
+                txnr636 is at {{ states("device_tracker.txnr636") }}
+                and phone_phone is at {{ states("device_tracker.phone_phone") }}
               {% endif %}

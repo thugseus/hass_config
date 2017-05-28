@@ -7,11 +7,6 @@
       pulselength: 700
 - platform: command_line
   switches:
-    firetv_server:
-      command_on: 'sudo /etc/init.d/firetvServer start'
-      command_off: 'sudo /etc/init.d/firetvServer stop'
-#      value_template: '{{ return_value == "1" }}'
-#      friendly_name: Kitchen Lightswitch
     home_assistant_system_shutdown:
       command_off: "/usr/sbin/poweroff"
 - platform: command_line

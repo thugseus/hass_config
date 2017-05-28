@@ -102,11 +102,11 @@ automation: !include automation.yaml
 
 script: !include scripts.yaml
 
-#alexa: !include alexa.yaml
+alexa: !include alexa.yaml
 
-emulated_hue:
-  type: alexa
-  listen_port: 80
+#emulated_hue:
+#  type: alexa
+#  listen_port: 80
   
 mysensors:
   gateways:
@@ -132,5 +132,8 @@ hello_state:
 camera:
   - platform: local_file
     name: Typhoon cam
-    file_path: /tmp/lastsnap.jpg
+    file_path: /tmp/motion1/lastsnap.jpg
+  - platform: local_file
+    name: Quick cam
+    file_path: /tmp/motion2/lastsnap.jpg
 

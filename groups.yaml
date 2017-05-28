@@ -29,9 +29,6 @@ media:
 development:
   name: 'Development'
   entities:
-    #- switch.firetv_server
-    #- script.firetv_server_start
-    #- script.test
     - climate.aquariumcontroll_2_0
     - sensor.aquariumcontroll_2_1
     - sensor.aquariumcontroll_2_2
@@ -41,23 +38,18 @@ development:
     - switch.tft_switch_5_2
     - switch.tft_switch_5_3
     - camera.typhoon_cam
-    #- hello_state.hello_state
+    - camera.quick_cam
     - light.buro
     - light.wohnzimmer
     - automation.rule_1_light_on_in_the_evening
     - updater.updater
     - switch.relay_1_2
-    #- script.h_knight_rider
-    #- switch.relay_1_1
-    #- switch.relaybutton_1_3
-    #- switch.relaybutton_1_4
 
 sensors:
   name: 'Sensors'
   entities:
     - sensor.dht_sensor_temperature
     - sensor.dht_sensor_humidity
-    #- switch.home_assistant_system_shutdown
     - sensor.owm_temperature
     - sensor.owm_humidity
     - sensor.owm_condition

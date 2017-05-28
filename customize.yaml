@@ -1,3 +1,8 @@
+
+media_player.receiver:
+  friendly_name: Receiver
+
+
 ###Sensors
 sensor.dht_sensor_humidity:
   friendly_name: Wohnzimmer Luftfeuchtigkeit
@@ -54,7 +59,7 @@ switch.relay_1_1:
 
   ### LED LAMPE
 switch.led_light_on:
-  friendly_name: Power
+  friendly_name: LED Licht an
 script.led_light_green:
   friendly_name: Grün
   icon: mdi:format-color-fill
@@ -72,14 +77,16 @@ script.led_light_auto:
   icon: mdi:autorenew
 script.led_light_brightness_max:
   friendly_name: Helligkeit max
+  haaska_hidden: true
   icon: mdi:weather-sunset-up
 script.led_light_brightness_min:
   friendly_name: Helligkeit min
+  haaska_hidden: true
   icon: mdi:weather-sunset-down
   
   ### LED LEISTE WOHNZIMMER
 switch.led_panel_livingroom_on:
-  friendly_name: Power
+  friendly_name: LED Leiste an
 script.led_panel_livingroom_green:
   friendly_name: Grün
   icon: mdi:format-color-fill
@@ -97,9 +104,11 @@ script.led_panel_livingroom_auto:
   icon: mdi:autorenew
 script.led_panel_livingroom_brightness_up:
   friendly_name: Heller
+  haaska_hidden: true
   icon: mdi:weather-sunset-up
 script.led_panel_livingroom_brightness_down:
   friendly_name:  Dunkler
+  haaska_hidden: true
   icon: mdi:weather-sunset-down
 script.led_panel_livingroom_white:
   friendly_name:  Weiß
@@ -121,5 +130,45 @@ script.led_panel_livingroom_orange:
 light.yeelight_one:
   friendly_name:  Stehlampe
   haaska_name: Stehlampe
-  emulated_hue: true
-  emulated_hue_name: "Stehlampe"
+light.hyperion:
+  friendly_name:  Hyperion
+
+  
+ ### ALEXA
+switch.home_assistant_system_shutdown:
+    haaska_hidden: true
+script.firetv_server_start:
+    haaska_hidden: true
+group.all_automations:
+    haaska_hidden: true
+group.all_devices:
+    haaska_hidden: true
+group.all_lights:
+    haaska_hidden: true
+group.all_scripts:
+    haaska_hidden: true
+group.all_switches:
+    haaska_hidden: true
+group.development:
+    haaska_hidden: true
+group.hyperion:
+    haaska_hidden: true
+group.sensors:
+    haaska_hidden: true
+group.servers:
+    haaska_hidden: true
+group.rpdataview:
+    haaska_hidden: true
+group.rpdata:
+    haaska_hidden: true
+group.media:
+    haaska_hidden: true
+group.led_panel_livingroom:
+    haaska_hidden: true
+group.led_light:
+    haaska_hidden: true
+group.tracker:
+    haaska_hidden: true
+group.default_view:
+    haaska_hidden: true
+    
