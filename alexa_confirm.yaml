@@ -1,5 +1,5 @@
 >
-          {{ [
+          {% set responses = [
           "ok",
           "erledigt",
           "ay ay",
@@ -9,4 +9,6 @@
           "wenn es sein muss",
           "na gut",
           "sofort"
-          ] | random }} 
+          ] %}
+          {% set rindex =  (range(0, (responses | length - 1) )|random) -%}
+          {{responses[rindex]}}

@@ -136,4 +136,6 @@ camera:
   - platform: local_file
     name: Quick cam
     file_path: /tmp/motion2/lastsnap.jpg
+    
+scene: !include scenes.yaml
 

@@ -1,0 +1,36 @@
+- name: wohnzimmer an
+    entities:
+      light.yeelight_one:
+        state: on
+        brightness_pct: 100
+      light.wohnzimmer:
+        state: on
+        rgb_color: [255, 255, 255]
+        brightness_pct: 100
+      light.buro:
+        state: on
+        rgb_color: [255, 255, 255]
+        brightness_pct: 100
+        
+- name: wohnzimmer aus
+    entities:
+      light.yeelight_one:
+        state: off
+      light.wohnzimmer:
+        state: off
+      light.buro:
+        state: off
+      switch.led_panel_livingroom_on: off
+
+- name: wohnzimmer entspannt
+    entities:      
+      light.wohnzimmer:
+        state: off
+      light.buro:
+        state: off
+      light.yeelight_one:
+        state: on
+        brightness_pct: 40
+      switch.led_panel_livingroom_on: on
+      input_select.led_panel_livingroom: 
+        option: "Orange"
