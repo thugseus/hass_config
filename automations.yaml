@@ -1,0 +1,19 @@
+- action:
+  - service: script.h_shutdown
+  alias: New Automation
+  id: '1496048711057'
+  trigger:
+  - entity_id: device_tracker.txnr636
+    from: home
+    platform: state
+    to: not_home
+- action:
+  - alias: script.h_shutdown
+    service: script.h_shutdown
+  alias: New Automations
+  id: '1496048738497'
+  trigger:
+  - entity_id: script.h_shutdown
+    from: script.h_shutdown
+    platform: state
+    to: script.h_shutdown

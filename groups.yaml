@@ -29,6 +29,9 @@ media:
 development:
   name: 'Development'
   entities:
+    - scene.wohnzimmer_an
+    - scene.wohnzimmer_aus
+    - scene.wohnzimmer_entspannt    
     - climate.aquariumcontroll_2_0
     - sensor.aquariumcontroll_2_1
     - sensor.aquariumcontroll_2_2

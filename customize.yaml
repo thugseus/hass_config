@@ -2,6 +2,14 @@
 media_player.receiver:
   friendly_name: Receiver
 
+###Scenes
+scene.wohnzimmer_an:
+  haaska_name: Wohnzimmeran
+scene.wohnzimmer_aus:
+  haaska_name: Wohnzimmeraus
+scene.wohnzimmer_entspannt:
+  haaska_name: Wohnzimmergemütlich
+    
 
 ###Sensors
 sensor.dht_sensor_humidity:
@@ -131,7 +139,12 @@ light.yeelight_one:
   friendly_name:  Stehlampe
   haaska_name: Stehlampe
 light.hyperion:
-  friendly_name:  Hyperion
+  friendly_name:  Ambilight
+  haaska_name:  Ambilight
+light.wohnzimmer:
+  friendly_name:  Sofa Licht
+  haaska_name: Sofa Licht
+  
 
   
  ### ALEXA
@@ -171,4 +184,13 @@ group.tracker:
     haaska_hidden: true
 group.default_view:
     haaska_hidden: true
+    
+###Input Select
+input_select.led_panel_livingroom:
+  friendly_name:  LED Leiste
+input_select.led_light:
+  friendly_name:  LED Lampe
+input_select.hyperion_effect:
+  friendly_name:  Ambillight Effekte
+
     

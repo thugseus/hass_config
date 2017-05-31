@@ -3,8 +3,8 @@ RunInputSelect:
     action:
         service: input_select.select_option
         data_template:
-            entity_id: {{ Input_Select | replace(" ", "_") }}
-            option: {{ Input_Select_Values }}
+            entity_id: input_select.{{ Input_Select | replace(" ", "_") }}
+            option: '{{ Input_Select_Values }}'
     speech:
         type: plaintext
         text: !include alexa_confirm.yaml
@@ -12,7 +12,7 @@ RunInputSelect:
 flash_briefings:
     whoishome:
         - title: Who's at home?
-            text: >
+          text: >
               {%- if is_state('device_tracker.phone_phone', 'home') and
                      is_state('device_tracker.txnr636', 'home') -%}
                 You are both home, you silly
