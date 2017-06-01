@@ -17,3 +17,7 @@
     led_panel_livingroom_on:
       command_on: irsend SEND_ONCE LED_LIVINGROOM KEY_POWER
       command_off: irsend SEND_ONCE LED_LIVINGROOM KEY_POWER2
+- platform: broadlink
+  host: IP_ADDRESS
+  mac: 'MAC_ADDRESS'
+  switches: !include switches_broadlink.yaml

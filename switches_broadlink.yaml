@@ -1,0 +1,61 @@
+### TV RECEIVER
+tv_reciever:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+  
+### TV
+tv:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+  
+### LED STRIP
+led_strip:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_strip_green:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_strip_blue:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_strip_red:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_strip_orange:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_strip_yellow:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_strip_white:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_strip_purple:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+  
+### LED BULB
+led_bulb:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_bulb_green:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_bulb_blue:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_bulb_red:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_bulb_orange:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_bulb_yellow:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_bulb_white:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
+led_bulb_purple:
+  command_on: 'switch_packet on'
+  command_off: 'switch_packet off'
