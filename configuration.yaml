@@ -92,14 +92,6 @@ panel_custom:
     sidebar_icon: mdi:home
     url_path: floorplan
     config: !include floorplan.yaml
- 
-camera:
-  - platform: local_file
-    name: Typhoon cam
-    file_path: /tmp/motion1/lastsnap.jpg
-  - platform: local_file
-    name: Quick cam
-    file_path: /tmp/motion2/lastsnap.jpg
     
 mysensors:
   gateways:
