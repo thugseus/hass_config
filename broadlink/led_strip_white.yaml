@@ -1,0 +1,8 @@
+  alias: "LED Leiste Weiß"
+  trigger:
+    - platform: state
+      entity_id: input_select.led_strip
+      to: "Weiss"
+  action:
+    service: switch.turn_on
+    entity_id: switch.led_strip_white

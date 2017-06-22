@@ -11,7 +11,7 @@
 - platform: hyperion
   host: 192.168.178.59
   
-- platform: mipow
-  devices:
-    Wohnzimmer: 85:F0:4B:0D:AC:E6
-    Büro: 6E:4E:4B:0F:AC:E6
+#- platform: mipow
+#  devices:
+#    Wohnzimmer: 85:F0:4B:0D:AC:E6
+#    Büro: 6E:4E:4B:0F:AC:E6

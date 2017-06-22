@@ -6,8 +6,9 @@ default_view:
     - group.home
     - group.tracker
     - group.sensors
-    - group.led_light
-    - group.led_panel_livingroom
+#    - group.led_light
+    - group.led_strip
+    - group.led_bulb
 
 rpDataView:
   view: yes
@@ -93,21 +94,21 @@ home:
     - light.yeelight_one
     - switch.socket_2
 
-led_light:
+led_bulb:
   name: 'LED Lampe'
   entities:
-    - switch.led_light_on
-    - input_select.led_light
-    - script.led_light_brightness_max
-    - script.led_light_brightness_min
+    - switch.led_bulb
+    - input_select.led_bulb
+    - switch.led_bulb_bright
+    - switch.led_bulb_dark
 
-led_panel_livingroom:
+led_strip:
   name: 'LED Leiste Wohnzimmer'
   entities:
-    - switch.led_panel_livingroom_on
-    - input_select.led_panel_livingroom
-    - script.led_panel_livingroom_brightness_up
-    - script.led_panel_livingroom_brightness_down
+    - switch.led_strip
+    - input_select.led_strip
+    - switch.led_strip_brighter
+    - switch.led_strip_darker
 
 hyperion:
   name: 'Ambilight'

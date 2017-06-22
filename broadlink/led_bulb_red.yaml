@@ -1,0 +1,8 @@
+  alias: "LED Lampe Rot"
+  trigger:
+    - platform: state
+      entity_id: input_select.led_bulb
+      to: "Rot"
+  action:
+    service: switch.turn_on
+    entity_id: switch.led_bulb_red

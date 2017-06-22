@@ -4,11 +4,11 @@ media_player.receiver:
 
 ###Scenes
 scene.wohnzimmer_an:
-  haaska_name: Wohnzimmeran
+  haaska_name: Wohnzimmer an
 scene.wohnzimmer_aus:
-  haaska_name: Wohnzimmeraus
+  haaska_name: Wohnzimmer aus
 scene.wohnzimmer_entspannt:
-  haaska_name: Wohnzimmergemütlich
+  haaska_name: gemütlich
     
 
 ###Sensors
@@ -65,74 +65,67 @@ switch.relay_1_1:
   friendly_name: Bodyshaker
   icon: mdi:watch-vibrate
 
-  ### LED LAMPE
-switch.led_light_on:
-  friendly_name: LED Licht an
-script.led_light_green:
-  friendly_name: Grün
-  icon: mdi:format-color-fill
-script.led_light_red:
-  friendly_name: Rot
-  icon: mdi:format-color-fill
-script.led_light_blue:
-  friendly_name: Blau
-  icon: mdi:format-color-fill
-script.led_light_yellow:
-  friendly_name: Gelb
-  icon: mdi:format-color-fill
-script.led_light_auto:
-  friendly_name: Auto
-  icon: mdi:autorenew
-script.led_light_brightness_max:
-  friendly_name: Helligkeit max
+### LED LAMPE
+switch.led_bulb:
+  friendly_name: LED Lampe an
+switch.led_bulb_green:
+  friendly_name: LED Leiste grün
   haaska_hidden: true
-  icon: mdi:weather-sunset-up
-script.led_light_brightness_min:
-  friendly_name: Helligkeit min
+switch.led_bulb_blue:
+  friendly_name: LED Lampe blau
   haaska_hidden: true
-  icon: mdi:weather-sunset-down
+switch.led_bulb_red:
+  friendly_name: LED Lampe rot
+  haaska_hidden: true
+switch.led_bulb_orange:
+  friendly_name: LED Lampe orange
+  haaska_hidden: true
+switch.led_bulb_yellow:
+  friendly_name: LED Lampe gelb
+  haaska_hidden: true
+switch.led_bulb_white:
+  friendly_name: LED Lampe weiß
+  haaska_hidden: true
+switch.led_bulb_purple:
+  friendly_name: LED Lampe lila
+  haaska_hidden: true
+switch.led_bulb_bright:
+  friendly_name: LED Lampe hell
+  haaska_hidden: true
+switch.led_bulb_dark:
+  friendly_name: LED Lampe dunkel
+  haaska_hidden: true
   
-  ### LED LEISTE WOHNZIMMER
-switch.led_panel_livingroom_on:
+### LED LEISTE WOHNZIMMER
+switch.led_strip:
   friendly_name: LED Leiste an
-script.led_panel_livingroom_green:
-  friendly_name: Grün
-  icon: mdi:format-color-fill
-script.led_panel_livingroom_red:
-  friendly_name: Rot
-  icon: mdi:format-color-fill
-script.led_panel_livingroom_blue:
-  friendly_name: Blau
-  icon: mdi:format-color-fill
-script.led_panel_livingroom_yellow:
-  friendly_name: Gelb
-  icon: mdi:format-color-fill
-script.led_panel_livingroom_auto:
-  friendly_name: Auto
-  icon: mdi:autorenew
-script.led_panel_livingroom_brightness_up:
-  friendly_name: Heller
+switch.led_strip_green:
+  friendly_name: LED Leiste grün
   haaska_hidden: true
-  icon: mdi:weather-sunset-up
-script.led_panel_livingroom_brightness_down:
-  friendly_name:  Dunkler
+switch.led_strip_blue:
+  friendly_name: LED Leiste blau
   haaska_hidden: true
-  icon: mdi:weather-sunset-down
-script.led_panel_livingroom_white:
-  friendly_name:  Weiß
-  icon: mdi:format-color-fill
-script.led_panel_livingroom_smooth:
-  friendly_name:  Smooth
-  icon: mdi:all-inclusive
-script.led_panel_livingroom_fade:
-  friendly_name:  Fade
-  icon: mdi:arrange-send-to-back
-script.led_panel_livingroom_strobe:
-  friendly_name:  Strobe
-  icon: mdi:spotlight
-script.led_panel_livingroom_orange:
-  friendly_name:  Orange
-  icon: mdi:format-color-fill
+switch.led_strip_red:
+  friendly_name: LED Leiste rot
+  haaska_hidden: true
+switch.led_strip_orange:
+  friendly_name: LED Leiste orange
+  haaska_hidden: true
+switch.led_strip_yellow:
+  friendly_name: LED Leiste gelb
+  haaska_hidden: true
+switch.led_strip_white:
+  friendly_name: LED Leiste weiß
+  haaska_hidden: true
+switch.led_strip_purple:
+  friendly_name: LED Leiste lila
+  haaska_hidden: true
+switch.led_strip_brighter:
+  friendly_name: LED Leiste heller
+  haaska_hidden: true
+switch.led_strip_darker:
+  friendly_name: LED Leiste dunkler
+  haaska_hidden: true
   
  ### LIGHT
 light.yeelight_one:
@@ -144,9 +137,7 @@ light.hyperion:
 light.wohnzimmer:
   friendly_name:  Sofa Licht
   haaska_name: Sofa Licht
-  
 
-  
  ### ALEXA
 switch.home_assistant_system_shutdown:
     haaska_hidden: true
@@ -176,9 +167,9 @@ group.rpdata:
     haaska_hidden: true
 group.media:
     haaska_hidden: true
-group.led_panel_livingroom:
+group.led_strip:
     haaska_hidden: true
-group.led_light:
+group.led_bulb:
     haaska_hidden: true
 group.tracker:
     haaska_hidden: true

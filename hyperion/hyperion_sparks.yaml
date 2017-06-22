@@ -2,6 +2,6 @@ alias: "Sparks"
 trigger:
   - platform: state
     entity_id: input_select.hyperion_effect
-    state: "Sparks"
+    to: "Sparks"
 action:
   service: shell_command.h_sparks

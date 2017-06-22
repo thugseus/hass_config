@@ -1,4 +1,4 @@
-    led_panel_livingroom:
+    led_strip:
       name: LED Leiste Wohnzimmer
       options:
         - Gruen
@@ -10,16 +10,17 @@
         - Smooth
         - Fade
         - Strobe
-      initial: Weiss
+      initial: Orange
       icon: mdi:lightbulb-outline
     
-    led_light:
+    led_bulb:
       name: LED Lampe
       options:
         - Weiss
         - Gruen
         - Gelb
         - Blau
+        - Orange
         - Rot
         - Auto
       initial: Weiss

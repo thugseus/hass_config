@@ -1,23 +1,8 @@
-- platform: rpi_rf
-  gpio: 17
-  switches:
-    socket_2:
-      code_on: 1380689
-      code_off: 1380692
-      pulselength: 700
 - platform: command_line
   switches:
     home_assistant_system_shutdown:
       command_off: "/usr/sbin/poweroff"
-- platform: command_line
-  switches:
-    led_light_on:
-      command_on: irsend SEND_ONCE IAN_78447 KEY_POWER
-      command_off: irsend SEND_ONCE IAN_78447 KEY_POWER2
-    led_panel_livingroom_on:
-      command_on: irsend SEND_ONCE LED_LIVINGROOM KEY_POWER
-      command_off: irsend SEND_ONCE LED_LIVINGROOM KEY_POWER2
 - platform: broadlink
-  host: IP_ADDRESS
-  mac: 'MAC_ADDRESS'
+  host: 192.168.178.65
+  mac: 34:EA:34:B5:18:C9
   switches: !include switches_broadlink.yaml

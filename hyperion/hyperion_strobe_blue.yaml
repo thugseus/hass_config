@@ -2,6 +2,6 @@ alias: "Strobe Blue"
 trigger:
   - platform: state
     entity_id: input_select.hyperion_effect
-    state: "Strobe Blue"
+    to: "Strobe Blue"
 action:
   service: shell_command.h_strobe_blue

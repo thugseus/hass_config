@@ -1,0 +1,71 @@
+### Turn on Bodyshaker when AV Receiver turns on
+- alias: 'Bodyshaker on when AV Receiver on'
+  trigger:
+    - platform: state    
+      entity_id: device_tracker.txnr636
+      from: 'not_home'
+      to: 'home'
+    - platform: state    
+      entity_id: media_player.receiver
+      from: 'off'
+      to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.relay_1_1
+
+### Turn off Bodyshaker when AV Receiver turns off
+- alias: 'Bodyshaker off when AV Receiver off'
+  trigger:
+    - platform: state    
+      entity_id: device_tracker.txnr636
+      from: 'home'
+      to: 'not_home'
+    - platform: state    
+      entity_id: media_player.receiver
+      from: 'on'
+      to: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.relay_1_1
+
+####BROADLINK SWITCH AUTOMATIONS####
+- !include broadlink/led_strip_green.yaml
+- !include broadlink/led_strip_yellow.yaml
+- !include broadlink/led_strip_blue.yaml
+- !include broadlink/led_strip_red.yaml
+- !include broadlink/led_strip_white.yaml
+- !include broadlink/led_strip_orange.yaml
+- !include broadlink/led_bulb_green.yaml
+- !include broadlink/led_bulb_yellow.yaml
+- !include broadlink/led_bulb_blue.yaml
+- !include broadlink/led_bulb_red.yaml
+- !include broadlink/led_bulb_white.yaml
+- !include broadlink/led_bulb_orange.yaml
+#- !include broadlink/led_bulb.yaml
+
+####HYPERION AUTOMATIONS####
+- !include hyperion/hyperion_mood_blobs_blue.yaml
+- !include hyperion/hyperion_knight_rider.yaml
+- !include hyperion/hyperion_mood_blobs_cold.yaml
+- !include hyperion/hyperion_mood_blobs_full_color.yaml
+- !include hyperion/hyperion_mood_blobs_green.yaml
+- !include hyperion/hyperion_mood_blobs_red.yaml
+- !include hyperion/hyperion_mood_blobs_warm.yaml
+- !include hyperion/hyperion_rainbow_mood.yaml
+- !include hyperion/hyperion_rainbow_swirl.yaml
+- !include hyperion/hyperion_snake.yaml
+- !include hyperion/hyperion_strobe_blue.yaml
+- !include hyperion/hyperion_strobe_white.yaml
+- !include hyperion/hyperion_strobe_raspberry.yaml
+- !include hyperion/hyperion_off.yaml
+- !include hyperion/hyperion_color_traces.yaml
+- !include hyperion/hyperion_snake.yaml
+- !include hyperion/hyperion_cinema_dim_lights.yaml
+- !include hyperion/hyperion_cinema_brighten_lights.yaml
+- !include hyperion/hyperion_police_lights_single.yaml
+- !include hyperion/hyperion_random.yaml
+- !include hyperion/hyperion_police_lights_solid.yaml
+- !include hyperion/hyperion_running_dots.yaml
+- !include hyperion/hyperion_system_shutdown.yaml
+- !include hyperion/hyperion_sparks_color.yaml
+- !include hyperion/hyperion_sparks.yaml

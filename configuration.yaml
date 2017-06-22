@@ -18,14 +18,22 @@ homeassistant:
 # Enables the frontend
 frontend:
 
+# Enables configuration UI
+config:
+
 http:
-  # Uncomment this to add a password (recommended!)
   api_password: !secret http_password
   ssl_certificate: /etc/letsencrypt/live/derflo.ddns.net/fullchain.pem
   ssl_key: /etc/letsencrypt/live/derflo.ddns.net/privkey.pem
 
 # Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
 
 # Discover some devices automatically
 discovery:
@@ -34,53 +42,20 @@ discovery:
 conversation:
 
 # Enables support for tracking state changes over time.
-#history:
+history:
 
 # View all events in a logbook
-#logbook:
-#logger:
-
-config:
+logbook:
 
 # Track the sun
 sun:
 
-# Weather Prediction
+# Sensors
 sensor: !include sensors.yaml
-
-#mqtt:
-#  broker: 127.0.0.1
-#  port: 1883
-#  client_id: home-assistant-1
-#  username: pi
-#  password: raspberry
+# Text to speech
+tts:
+  platform: google
   
-mqtt:
-  broker: m13.cloudmqtt.com
-  port: 16416
-  client_id: home-assistant-1
-  keepalive: 60
-  username: homeassistant
-  password: '!23Flo$56'
-
-zone: !include zones.yaml
-
-media_player: !include mediaplayers.yaml
-  
-group: !include groups.yaml
-
-input_select:  !include input_select.yaml
-    
-device_tracker:
-#  - platform: nmap_tracker
-#    hosts: 192.168.178.1/24
-#  - platform: bluetooth_tracker
-  - platform: owntracks
-    waypoints: True
-  - platform: fritz
-    host: 192.168.178.1
-    consider_home: 20
-#  - platform: bluetooth_le_tracker
 notify:
   - name: HTML5
     platform: html5
@@ -90,45 +65,34 @@ notify:
     name: FireTV
     host: 192.168.178.48
 
-light: !include lights.yaml
-
-shell_command: !include shell_commands.yaml
-
-switch: !include switches.yaml
-
-lirc:
-
+group: !include groups.yaml
+#automation: !include automations.yaml
 automation: !include automation.yaml
-
+light: !include lights.yaml
+shell_command: !include shell_commands.yaml
+switch: !include switches.yaml
 script: !include scripts.yaml
+#alexa: !include alexa.yaml
+zone: !include zones.yaml
+media_player: !include mediaplayers.yaml
+input_select:  !include input_select.yaml
+scene: !include scenes.yaml
 
-alexa: !include alexa.yaml
+camera:
+  - platform: local_file
+    name: Typhoon cam
+    file_path: /tmp/motion1/lastsnap.jpg
+  - platform: local_file
+    name: Quick cam
+    file_path: /tmp/motion2/lastsnap.jpg
 
-#emulated_hue:
-#  type: alexa
-#  listen_port: 80
-  
-mysensors:
-  gateways:
-    - device: '/dev/ttyUSB0'
-      persistence_file: /home/hass/.homeassistant/arduino/mysensors.json
-      baud_rate: 115200
-#38400
-#    - device: '/dev/ttyACM0'
-#      persistence_file: 'path/mysensors2.json'
-#      baud_rate: 115200
-#    - device: mqtt
-#      persistence_file: 'path/mysensors3.json'
-#      topic_in_prefix: 'mygateway1-out'
-#      topic_out_prefix: 'mygateway1-in'
-  optimistic: true
-  persistence: true
-  retain: true
-  version: 2.0
-
-hello_state:
-  text: 'Hello, World!'
-  
+panel_custom: 
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml
+ 
 camera:
   - platform: local_file
     name: Typhoon cam
@@ -137,12 +101,12 @@ camera:
     name: Quick cam
     file_path: /tmp/motion2/lastsnap.jpg
     
-scene: !include scenes.yaml
-
-
-panel_custom: 
-  - name: floorplan
-    sidebar_title: Floorplan
-    sidebar_icon: mdi:home
-    url_path: floorplan
-    config: !include floorplan.yaml
+mysensors:
+  gateways:
+    - device: '/dev/ttyUSB0'
+      persistence_file: /home/homeassistant/.homeassistant/arduino/mysensors.json
+      baud_rate: 115200
+  optimistic: true
+  persistence: true
+  retain: true
+  version: 2.0
