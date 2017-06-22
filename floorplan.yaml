@@ -1,0 +1,60 @@
+      name: Demo Floorplan
+      image: /home/homeassistant/.homeassistant/www/custom_ui/floorplan/floorplan.svg
+      stylesheet: /home/homeassistant/.homeassistant/www/custom_ui/floorplan/floorplan.css
+
+      #last_motion_entity: sensor.template_last_motion
+      #last_motion_class: last-motion
+
+      groups:
+
+#        - name: Sensors
+#          entities:
+#             - sensor.melbourne_now
+#          text_template: '${entity.state ? entity.state : "unknown"}'
+#          class_template: '
+#            var temp = parseFloat(entity.state.replace("°", ""));
+#            if (temp < 10)
+#              return "temp-low";
+#            else if (temp < 30)
+#              return "temp-medium";
+#            else
+#              return "temp-high";
+#            '
+
+        - name: Lights
+          entities:
+             - light.yeelight_one
+             - light.buro
+             - light.livingroom
+             - switch.livingroom_corner
+             - switch.led_strip
+          states:
+            - state: 'on'
+              class: 'light-on'
+            - state: 'off'
+              class: 'light-off'
+
+#        - name: Switches
+#          entities:
+#             - switch.doorbell
+#          states:
+#            - state: 'on'
+#              class: 'doorbell-on'
+#            - state: 'off'
+#              class: 'doorbell-off'
+
+        - name: Cameras
+          entities:
+            - camera.quick_cam
+            - camera.typhoon_cam
+          states:
+            - state: 'idle'
+              class: 'camera-idle'
+              
+#        - name: thermostat_temp
+#          entities:
+#            - climate.downstairs
+#            - climate.upstairs
+#          text_template: '${entity.attributes.current_temperature ? entity.attributes.current_temperature : "undefined"}'
+#
+# The above text_template uses extended attributes from the climate.* objects to get current temperature.
