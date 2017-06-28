@@ -1,7 +1,7 @@
       name: Demo Floorplan
       image: /local/custom_ui/floorplan/zeichnung.svg
       stylesheet: /local/custom_ui/floorplan/floorplan.css
-
+      pan_zoom:
       #last_motion_entity: sensor.template_last_motion
       #last_motion_class: last-motion
 
@@ -26,8 +26,9 @@
              - light.yeelight_one
              - light.buro
              - light.livingroom
-             - switch.livingroom_corner
+             - switch.relay_1_1
              - switch.led_strip
+             - switch.led_bulb
           states:
             - state: 'on'
               class: 'light-on'
@@ -56,3 +57,17 @@
             - climate.aquariumcontroll_2_0
           text_template: '${entity.attributes.current_temperature ? entity.attributes.current_temperature : "undefined"}'
 # The above text_template uses extended attributes from the climate.* objects to get current temperature.
+
+        - name: Media Players
+          entities:
+            - media_player.firetv
+            - media_player.onkyo
+          states:
+            - state: 'off'
+              class: 'squeezebox-off'
+            - state: 'idle'
+              class: 'squeezebox-off'
+            - state: 'paused'
+              class: 'squeezebox-off'
+            - state: 'playing'
+              class: 'squeezebox-on'
