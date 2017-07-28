@@ -28,6 +28,17 @@
     service: switch.turn_off
     entity_id: switch.relay_1_1
 
+### Notify when new version of homeassistant available   
+automation:
+  alias: 'Update Available Notifications'
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    service: notify.notify
+    data:
+      message: 'Update for Home Assistant is available.'
+
 ####BROADLINK SWITCH AUTOMATIONS####
 - !include broadlink/led_strip_green.yaml
 - !include broadlink/led_strip_yellow.yaml
